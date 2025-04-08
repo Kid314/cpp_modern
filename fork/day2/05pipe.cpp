@@ -1,0 +1,10 @@
+#include<iostream>
+#include<sys/fcntl.h>
+#include<sys/types.h>
+#include<sys/wait.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<stdio.h>
+#include<string.h>
+#include<string>
+#include<sys/stat.h>
