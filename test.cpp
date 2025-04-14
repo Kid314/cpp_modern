@@ -181,26 +181,71 @@
 #include<list>
 #include<vector>
 #include<deque>
-class TD
+// class TD
+// {
+//     template<typename T> 
+//         TD(T first,T last):l(first,last){}
+//     std::list<int> l;
+// public:
+//     TD(std::vector<short>& v):TD(v.begin(),v.end()){}
+//     TD(std::deque<int>& d):TD(d.begin(),d.end()){}
+//     void show()
+//     {
+//         for(auto& kv:l)
+//         {
+//             std::cout<<kv<<"\n";
+//         }
+//     }
+// };
+// int main()
+// {
+//     std::vector<short> b{1,2,3,4,5};
+//     TD a1(b);
+//     a1.show();
+//     return 0;
+// }
+
+// struct A 
+// {
+//     A()
+//     {
+//         std::cout<<"A\n";
+//     }
+// };
+// struct B
+// {
+//     B()
+//     {
+//         std::cout<<"B\n";
+//     }
+//     explicit operator A() const 
+//     {
+//         std::cout<<"BA\n";
+//         return A();
+//     }
+// };
+// void fun(A a){}
+// int main()
+// {
+//     B b;
+//     A a1(b);
+//     // A a2=b;
+//     A a3=static_cast<A>(b);
+//     // fun(b);
+//     return 0;
+// }
+
+#include<string>
+union T
 {
-    template<typename T> 
-        TD(T first,T last):l(first,last){}
-    std::list<int> l;
+    std::string s;
+    int n;
 public:
-    TD(std::vector<short>& v):TD(v.begin(),v.end()){}
-    TD(std::deque<int>& d):TD(d.begin(),d.end()){}
-    void show()
-    {
-        for(auto& kv:l)
-        {
-            std::cout<<kv<<"\n";
-        }
-    }
+    T(){new (&s) std::string;}
+    ~T(){s.~basic_string();}
 };
 int main()
 {
-    std::vector<short> b{1,2,3,4,5};
-    TD a1(b);
-    a1.show();
+    // std::cout<<(int)nullptr<<"\n";
     return 0;
 }
